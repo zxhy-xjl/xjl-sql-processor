@@ -17,4 +17,7 @@
         <property name="username" value="xjlflow"/>  
         <property name="password" value="xjlflow"/>  
     </bean> 
+    <bean id="sqlUtilConfig" class="com.github.pagehelper.SqlUtilConfig">
+		<property name="dialect" value="oracle"></property>
+	</bean>
 </beans>  

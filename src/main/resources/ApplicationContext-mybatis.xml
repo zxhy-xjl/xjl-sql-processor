@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:aop="http://www.springframework.org/schema/aop"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans    
                         http://www.springframework.org/schema/beans/spring-beans.xsd    
@@ -24,19 +22,13 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource"></property>
 		<property name="plugins">
-		    <array>
-		    	<bean id="pageHelper" class="com.github.pagehelper.PageHelper">
-				        <property name="properties">
-				          <value>
-				            dialect=oracle
-				          </value>
-				        </property>
-				      </bean>
-		    </array>
-		  </property>
-
+			<array>
+				<bean id="pageHelper" class="com.github.pagehelper.PageHelper">
+					<property name="sqlUtilConfig" ref="sqlUtilConfig"></property>
+				</bean>
+			</array>
+		</property>
 	</bean>
-				      
 	<!-- 3. mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer sqlSessionFactory 
 		basePackage:指定sql映射文件/接口所在的包（自动扫描） -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
@@ -63,8 +55,10 @@
 	<!-- 定义AOP配置 -->
 	<aop:config>
 		<!-- 定义一个切入点 -->
-		<aop:pointcut expression="execution (* com.zxhy.xjl.*.service.*.*(..))"	id="services" />
-		<aop:pointcut expression="execution (* com.zxhy.xjl.*.business.*.*(..))"	id="business" />
+		<aop:pointcut expression="execution (* com.zxhy.xjl.*.service.*.*(..))"
+			id="services" />
+		<aop:pointcut expression="execution (* com.zxhy.xjl.*.business.*.*(..))"
+			id="business" />
 		<!-- 对切入点和事务的通知，进行适配 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="services" />
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="business" />

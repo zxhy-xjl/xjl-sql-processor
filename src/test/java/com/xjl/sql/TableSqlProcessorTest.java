@@ -1,4 +1,4 @@
-package com.zxhy.xjl.sql;
+package com.xjl.sql;
 
 import org.junit.Assert;
 import org.junit.Test;

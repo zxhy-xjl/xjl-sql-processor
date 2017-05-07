@@ -1,4 +1,4 @@
-package com.zxhy.xjl.sql;
+package com.xjl.sql;
 
 import java.io.IOException;
 import java.net.URI;

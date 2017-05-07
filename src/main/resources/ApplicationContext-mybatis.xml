@@ -15,7 +15,7 @@
                         http://www.springframework.org/schema/aop    
                         http://www.springframework.org/schema/aop/spring-aop.xsd">
 	<!-- 自动扫描 -->
-	<context:component-scan base-package="com.zxhy.xjl" />
+	<context:component-scan base-package="com.xjl" />
 	<mvc:annotation-driven />
 
 	<!-- 2. mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源 MyBatis定义数据源,同意加载配置 -->
@@ -33,7 +33,7 @@
 	<!-- 3. mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer sqlSessionFactory 
 		basePackage:指定sql映射文件/接口所在的包（自动扫描） -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.zxhy.xjl.*.mapper"></property>
+		<property name="basePackage" value="com.xjl.*.mapper"></property>
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 
@@ -56,9 +56,9 @@
 	<!-- 定义AOP配置 -->
 	<aop:config>
 		<!-- 定义一个切入点 -->
-		<aop:pointcut expression="execution (* com.zxhy.xjl.*.service.*.*(..))"
+		<aop:pointcut expression="execution (* com.xjl.*.service.*.*(..))"
 			id="services" />
-		<aop:pointcut expression="execution (* com.zxhy.xjl.*.business.*.*(..))"
+		<aop:pointcut expression="execution (* com.xjl.*.business.*.*(..))"
 			id="business" />
 		<!-- 对切入点和事务的通知，进行适配 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="services" />

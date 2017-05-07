@@ -2,9 +2,9 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.zxhy.xjl</groupId>
+  <groupId>com.xjl</groupId>
   <artifactId>xjl-sql-processor</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
   <packaging>jar</packaging>
 
   <name>xjl-sql-processor</name>
@@ -42,7 +42,7 @@
 	<distributionManagement>
 		<repository>
 			<id>user-releases</id>
-			<url>http://139.196.174.28:8081/nexus/content/repositories/releases</url>
+			<url>http://123.57.4.104:8081/nexus/content/repositories/releases</url>
 		</repository>
 	</distributionManagement>
 	<dependencies>

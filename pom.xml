@@ -42,7 +42,7 @@
 	<distributionManagement>
 		<repository>
 			<id>user-releases</id>
-			<url>http://123.57.4.104:8081/nexus/content/repositories/releases</url>
+			<url>http://123.57.4.104:8881/nexus/content/repositories/releases</url>
 		</repository>
 	</distributionManagement>
 	<dependencies>
